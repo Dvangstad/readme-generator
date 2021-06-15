@@ -20,16 +20,22 @@ inquirer
     },
     {
         type: "input",
-        name: "what",
-        message: "What are you?"
+        name: "installation",
+        message: "How do you install this application?"
     },
     {   type: "input",
-        name: "how",
-        message: "How do you install this applicaton?"
+        name: "usage",
+        message: "What is the usage information for this project?"
+
+    },
+    {   type: "input",
+        name: "contribution",
+        message: "How can people contribute to this file?"
+
 
     },
     {   type: "list",
-        name: "size",
+        name: "liscense",
         message: "What size would you like?",
         choices: ["small", new inquirer.Separator(), "medium", new inquirer.Separator(),
                  "large", new inquirer.Separator(), "extralarge"]
@@ -44,9 +50,9 @@ inquirer
 
 function organizeData (object) {
     return `The name of this project is: ${object.title}
-My name is ${object.who}
-I am ${object.what}
-The directons to install this project are: ${object.how}
+Project description: ${object.description}
+The instructions to install this project are: ${object.installation}
+The usage information for this project is: ${object.usage}
 your size choice is: ${object.size}`
 
 }
