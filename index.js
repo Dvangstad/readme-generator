@@ -15,14 +15,25 @@ inquirer
     },
     {
         type: "input",
-        name: "who",
-        message: "Who are you?"
+        name: "description",
+        message: "How would you decribe this project?"
     },
     {
         type: "input",
         name: "what",
         message: "What are you?"
     },
+    {   type: "input",
+        name: "how",
+        message: "How do you install this applicaton?"
+
+    },
+    {   type: "list",
+        name: "size",
+        message: "What size would you like?",
+        choices: ["small", new inquirer.Separator(), "medium", new inquirer.Separator(),
+                 "large", new inquirer.Separator(), "extralarge"]
+    }   
   ])
   .then((answers) => {
     // Use user feedback for... whatever!!
@@ -32,7 +43,10 @@ inquirer
   })
 
 function organizeData (object) {
-    return `Hello this is my project: ${object.title}
+    return `The name of this project is: ${object.title}
 My name is ${object.who}
-I am ${object.what}`
+I am ${object.what}
+The directons to install this project are: ${object.how}
+your size choice is: ${object.size}`
+
 }
