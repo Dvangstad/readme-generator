@@ -31,15 +31,30 @@ inquirer
     {   type: "input",
         name: "contribution",
         message: "How can people contribute to this file?"
+    },
+    {   type: "input",
+        name: "test",
+        message: "What tests need to be run for this application?"
+    },
+
+    {   type: "list",
+        name: "license",
+        message: "What liscense did you use?",
+        choices: ["The MIT license", new inquirer.Separator(), "The GNU license", new inquirer.Separator(),
+                 "The Apache license ", new inquirer.Separator(), "The GPL license"]
+    },
+    {   type: "input",
+        name: "git",
+        message: "Github user name:"
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "what is your email adddress?"
 
 
     },
-    {   type: "list",
-        name: "liscense",
-        message: "What size would you like?",
-        choices: ["small", new inquirer.Separator(), "medium", new inquirer.Separator(),
-                 "large", new inquirer.Separator(), "extralarge"]
-    }   
+
   ])
   .then((answers) => {
     // Use user feedback for... whatever!!
@@ -49,10 +64,40 @@ inquirer
   })
 
 function organizeData (object) {
-    return `The name of this project is: ${object.title}
-Project description: ${object.description}
-The instructions to install this project are: ${object.installation}
-The usage information for this project is: ${object.usage}
-your size choice is: ${object.size}`
+    return `
+    ## project title
+    
+    The name of this project is: ${object.title}
+
+    ## Description
+
+    Project description: ${object.description}
+
+    ##Installation
+
+    The instructions to install this project are: ${object.installation}
+
+    ##Usage
+
+    The usage information for this project is: ${object.usage}
+
+    ##Contributions
+
+    You can contribute to this project by: ${object.contribution}
+
+    ##Tests
+
+    The tests that should be run are: ${object.test}
+
+    ##License
+
+    The liscense used in this project is: ${object.license}
+
+    ##Questions
+
+    Github profile name: ${object.git}
+
+    E-mail address: ${object.email}`
+
 
 }
